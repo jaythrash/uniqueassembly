@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Unique Assembly</title>
+<meta name="description" content="Unique Assembly is a mobile app development studio. Our new site is on the way.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#eeeae0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121410" media="(prefers-color-scheme: dark)">
+<!-- All paths are relative so the site works at username.github.io/<repo>/ and on a custom domain -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unique Assembly — Coming soon">
+<meta property="og:description" content="A mobile app development studio. Our new site is on the way.">
+<!-- TODO: once the live URL is known, add <link rel="canonical">, og:url and an absolute og:image URL -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+  /* Design tokens: Unique Assembly design system ("Drafting paper" light / "Terminal" dark) */
+  :root {
+    --paper: #eeeae0; --paper-raised: #f7f4ec; --case: #d8d0be;
+    --ink: #1a1a17; --ink-muted: #5e5a50; --hairline: #bdb5a3;
+    --signal: #c2410c; --signal-text: #a8360a; --on-signal: #f7f4ec;
+    --phosphor: #276b43;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121410; --paper-raised: #1b1e19; --case: #2c3028;
+      --ink: #ece6d6; --ink-muted: #a39e8f; --hairline: #3b3f36;
+      --signal: #ff7a3d; --signal-text: #ff8c55; --on-signal: #121410;
+      --phosphor: #6be38f;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100vh; display: flex; flex-direction: column;
+    background: var(--paper); color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  .lbl { font: 500 12px/16px "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px clamp(16px, 3vw, 32px); }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand svg { width: 28px; height: 28px; overflow: visible; flex: none; }
+  .brand span { font: 800 clamp(14px, 1.4vw, 16px) Archivo, sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+  .status { color: var(--phosphor); display: inline-flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; background: var(--phosphor); display: inline-block; animation: blink 1.6s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  main {
+    flex: 1; width: 100%; max-width: 960px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: clamp(24px, 4vw, 32px); padding: 24px clamp(16px, 3vw, 32px) 48px;
+  }
+  .intro { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  h1 { font: 800 clamp(44px, 7vw, 72px)/.95 Archivo, sans-serif; letter-spacing: -.025em; margin: 0; }
+  h1 em { font-style: normal; color: var(--signal-text); }
+  .lede { font-size: clamp(17px, 1.6vw, 19px); line-height: 1.5; color: var(--ink-muted); margin: 0; max-width: 520px; }
+
+  .signup { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 10px; }
+  form { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .field {
+    flex: 1 1 220px; min-width: 0; min-height: 52px; padding: 0 16px;
+    font: 400 16px "IBM Plex Sans", sans-serif; color: var(--ink);
+    background: var(--paper-raised); border: 2px solid var(--ink); border-radius: 0; outline: none;
+  }
+  .field::placeholder { color: var(--ink-muted); }
+  .field:focus-visible { box-shadow: 0 0 0 3px var(--signal); }
+  .go {
+    flex: 0 0 auto; min-height: 52px; padding: 0 24px;
+    font: 500 13px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase;
+    background: var(--signal); color: var(--on-signal); border: 2px solid var(--ink); border-radius: 0; cursor: pointer;
+  }
+  .go:hover { background: var(--ink); color: var(--paper); }
+  .go:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+  .go[disabled] { opacity: .6; cursor: progress; }
+  .done {
+    margin: 0; min-height: 52px; display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--ink); background: var(--paper-raised); color: var(--phosphor); padding: 0 16px;
+  }
+  .error { margin: 0; color: var(--signal-text); font-size: 11px; }
+  .fine { margin: 0; color: var(--ink-muted); font-size: 11px; }
+
+  footer { padding: 16px clamp(16px, 3vw, 32px) 24px; color: var(--ink-muted); text-align: center; font-size: 11px; }
+
+  @media (max-width: 480px) { .status .long { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <!-- Placeholder mark: three stacked isometric squares, top one in signal orange -->
+      <svg viewBox="-16 -16 32 32" aria-hidden="true">
+        <g transform="translate(0,9) matrix(0.866,0.5,-0.866,0.5,0,0)"><rect x="-8" y="-8" width="16" height="16" style="fill: var(--case); stroke: var(--ink); stroke-width: 1.5; vector-effect: non-scaling-stroke"/></g>
+        <g transform="translate(0,1) matrix(0.866,0.5,-0.866,0.5,0,0)"><rect x="-8" y="-8" width="16" height="16" style="fill: var(--paper-raised); stroke: var(--ink); stroke-width: 1.5; vector-effect: non-scaling-stroke"/></g>
+        <g transform="translate(0,-8) matrix(0.866,0.5,-0.866,0.5,0,0)"><rect x="-8" y="-8" width="16" height="16" style="fill: var(--signal); stroke: var(--ink); stroke-width: 1.5; vector-effect: non-scaling-stroke"/></g>
+      </svg>
+      <span>Unique Assembly</span>
+    </div>
+    <span class="status lbl"><span class="dot" aria-hidden="true"></span><span><span class="long">Status: </span>Coming soon</span></span>
+  </header>
+
+  <main>
+    <div class="intro">
+      <p class="lbl" style="margin:0;color:var(--signal-text)">Error 404 · Part not found</p>
+      <h1>This part isn’t <em>assembled</em> yet.</h1>
+      <p class="lede">The page you’re looking for doesn’t exist. Our new site is still on the assembly line.</p>
+      <p style="margin:8px 0 0"><a class="go lbl" id="home" href="./" style="display:inline-flex;align-items:center;text-decoration:none">Back to home</a></p>
+    </div>
+  </main>
+
+  <footer class="lbl">© 2026 Unique Assembly · Mobile app studio · iOS &amp; Android</footer>
+<script>
+  // GitHub Pages serves 404.html at whatever path was requested, so "./" may be wrong.
+  // On a project site (username.github.io/<repo>/) send people to /<repo>/; otherwise to /.
+  (function () {
+    var parts = location.pathname.split('/').filter(Boolean);
+    var base = /\.github\.io$/.test(location.hostname) && parts.length ? '/' + parts[0] + '/' : '/';
+    document.getElementById('home').href = base;
+    var icon = document.querySelector('link[rel="icon"]'); if (icon) icon.href = base + 'favicon.svg';
+  })();
+</script>
+</body>
+</html>
